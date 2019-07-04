@@ -23,6 +23,7 @@
   margin-top: 2rpx;
 }
 
+/*提示框设置*/
 .tips-container > image {
   width: 56rpx;
   height: 56rpx;
@@ -32,12 +33,12 @@
 
 @keyframes ani {
   0% {
-    background-color: #fdd835;
+    background-color: #35b4fdec;
   }
-  70% {
-    background-color: #fbc02d;
+  50% {
+    background-color: #2d8dfba6;
   }
   100% {
-    background-color: #fdd835;
+    background-color: #358cfda9;
   }
 }

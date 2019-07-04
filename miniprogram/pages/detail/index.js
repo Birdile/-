@@ -1,51 +1,51 @@
 import { DetailModel } from '../../models/detail'
 import { showToast, showModal } from '../../utils/UIUtil'
 
-const globalEnv = getApp()
+const globalEnv = getApp()       /*定义全局事件流*/
 
-Page({
-  data: {
+Page({    /*页面*/
+  data: {   /*数据*/
     goalId: '',
     goalTitle: '',
     lastUpdate: '',
     time: '',
-    longestTime: '',
+    longestTime: '',    /*最长记录时间*/
     goalRecords: null,
-    editingGoal: false,
-    uploadingGoalTitle: false
+    editingGoal: false,       /*编辑目标*/
+    uploadingGoalTitle: false    /*上传目标标题*/
   },
 
-  onLoad: function(options) {
+  onLoad: function (options) {          /*上传*/
     this.data.goalId = options.id
   },
 
-  onShow() {
+  onShow() {    /*监视判断是否进入显示页面*/
     this.getGoalData(this.data.goalId)
   },
 
-  onStartRecord() {
+  onStartRecord() {    /*开始记录*/
     let timerInfo = globalEnv.checkExistTimer()
 
-    if (timerInfo.goalId !== '' && timerInfo.goalId !== this.data.goalId) {
+    if (timerInfo.goalId !== '' && timerInfo.goalId !== this.data.goalId) {       /*判断是否有目标时间正在记录*/
       showToast('你目前已经有目标在进行中')
     } else {
-      wx.navigateTo({
+      wx.navigateTo({     /*小程序页面跳转*/
         url:
           '/pages/timer/index?id=' +
           this.data.goalId +
           '&title=' +
-          encodeURIComponent(this.data.goalTitle)
+          encodeURIComponent(this.data.goalTitle)    /*把字符串作为URI组件进行编码*/
       })
     }
   },
 
-  onEditGoalTitle() {
+  onEditGoalTitle() {   /*编辑目标名称*/
     this.setData({
       editingGoal: true
     })
   },
 
-  onEditCompleted(e) {
+  onEditCompleted(e) {   /*编辑完成*/
     if (!e.detail.length) {
       showToast('标题不能为空')
       return
@@ -53,9 +53,9 @@ Page({
 
     if (this.data.uploadingGoalTitle) return
 
-    this.data.uploadingGoalTitle = true
+    this.data.uploadingGoalTitle = true   /*上传目标名称成功*/
 
-    DetailModel.editGoalTitle(this.data.goalId, e.detail)
+    DetailModel.editGoalTitle(this.data.goalId, e.detail)  /*修改目标名称*/
       .then(res => {
         this.setData({
           editingGoal: false
@@ -72,15 +72,15 @@ Page({
       })
   },
 
-  onEditCancel() {
+  onEditCancel() {  /*取消编辑*/
     this.setData({
       editingGoal: false
     })
   },
 
-  onRemoveGoal() {
+  onRemoveGoal() {   /*删除目标*/
     showModal('', '是否删除“' + this.data.goalTitle + '”', () => {
-      DetailModel.removeGoal(this.data.goalId).then(
+      DetailModel.removeGoal(this.data.goalId).then(  /*确定是否删除*/
         res => {
           wx.navigateBack({
             delta: 1
@@ -93,7 +93,7 @@ Page({
     })
   },
 
-  getGoalData(id) {
+  getGoalData(id) {        /*获取目标数据*/
     DetailModel.getGoalData(id).then(
       res => {
         let data = DetailModel.formatGoalData(res.result)

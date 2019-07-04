@@ -1,3 +1,4 @@
+/*总结页面显示*/
 .header > .title {
   font-size: 44rpx;
   font-weight: bold;
@@ -21,7 +22,7 @@
   margin-bottom: 80rpx;
   padding: 24rpx;
   border-radius: 18rpx;
-  box-shadow: 0 6rpx 24rpx rgba(25, 118, 210, 0.08);
+  box-shadow: 0 6rpx 24rpx rgba(210, 25, 210, 0.603);
 }
 
 .info-container > .date-container {
@@ -99,8 +100,8 @@
 
 textarea {
   box-sizing: border-box;
-  border: 6rpx solid #f8f8f8;
-  background-color: #fff;
+  border: 6rpx solid  #bbc1fb;
+  background-color: beige;
   border-radius: 16rpx;
   margin: 0 40rpx;
   width: calc(100% - 80rpx);

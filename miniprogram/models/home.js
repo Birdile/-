@@ -32,6 +32,13 @@ class HomeModel {
     })
   }
 
+  static removeGoal(goalId) {
+    return wx.cloud.callFunction({
+      name: 'removeGoal',
+      data: { goalId }
+    })
+  }
+  
   static getGoalList(userId) {
     return wx.cloud.callFunction({
       name: 'getGoalList',

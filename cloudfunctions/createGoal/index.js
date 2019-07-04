@@ -7,7 +7,6 @@ const _ = db.command
 exports.main = async (event, context) => {
   let goalTitle = event.title
   let userId = event.userId
-  let classIndex = event.actIndex
   
 
   if (!goalTitle || !userId) return
@@ -17,7 +16,6 @@ exports.main = async (event, context) => {
       data: {
         userId: userId,
         title: goalTitle,
-        classIndex: classIndex,
         createDate: new Date(),
         lastUpdate: null,
         time: 0

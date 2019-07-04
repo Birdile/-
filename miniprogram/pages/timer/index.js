@@ -5,16 +5,16 @@ import { TimerState } from '../../config/timerState'
 const globalEnv = getApp()
 
 Page({
-  data: {
+  data: {        /*页面数据*/
     goalTitle: '',
     goalId: '',
-    isOngoing: true,
-    pauseImg: '../../images/timer/pause.png',
-    resumeImg: '../../images/timer/resume.png',
+    isOngoing: true,          /*正在进行中*/
+    pauseImg: '../../images/timer/pause.png',    /*暂停计时*/
+    resumeImg: '../../images/timer/resume.png',   /*继续计时*/
     timer: '00:00:00',
   },
 
-  onLoad(options) {
+  onLoad(options) {       /*在页面或图像加载完成后立即显示用户信息*/
     this.setData({
       goalTitle: decodeURIComponent(options.title),
       goalId: options.id
@@ -22,21 +22,21 @@ Page({
     this.initCounter()
   },
 
-  onPauseOrResume() {
+  onPauseOrResume() {   /*中断或继续*/
     this.setData({
       isOngoing: !this.data.isOngoing
     })
     this.data.isOngoing ? this.startCounter() : this.pauseCounter()
   },
 
-  onFinish() {
+  onFinish() {     /*结束*/
     let timerInfo = globalEnv.checkExistTimer()
 
     let { beginDate, duration } = { ...timerInfo }
 
     this.stopCounter()
 
-    wx.redirectTo({
+    wx.redirectTo({         /*关闭当前页面，跳转到下一个页面*/
       url:
         '/pages/summary/index?id=' +
         this.data.goalId +
@@ -51,7 +51,7 @@ Page({
     })
   },
 
-  onAbort() {
+  onAbort() {   /*取消本次记录*/
     showModal(
       '',
       '是否取消本次记录',
@@ -65,7 +65,7 @@ Page({
     )
   },
 
-  initCounter() {
+  initCounter() {    /*初始化计时器*/
     let timerInfo = globalEnv.checkExistTimer()
 
     switch (timerInfo.timerState) {
@@ -85,7 +85,7 @@ Page({
     }
   },
 
-  startCounter() {
+  startCounter() {   /*开始计时*/
     this.setData({
       isOngoing: true
     })
@@ -97,11 +97,11 @@ Page({
     })
   },
 
-  pauseCounter() {
+  pauseCounter() {     /*暂停计时*/
     globalEnv.pauseTimer()
   },
 
-  stopCounter() {
+  stopCounter() {     /*结束计时*/
     globalEnv.stopTimer()
   }
 })

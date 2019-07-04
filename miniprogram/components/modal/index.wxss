@@ -63,11 +63,6 @@
   margin-left: 36rpx;
   padding: 8rpx 20rpx;
   border-radius: 12rpx;
-  background-color: #1565c0;
+  background-color: #1daaeb;
   color: white;
-}
-
-.section{
-  margin-top:20rpx; 
-  font-size: 32rpx;
 }

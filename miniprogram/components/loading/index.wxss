@@ -1,20 +1,21 @@
+/*‘授权登录’显示*/
 .loading {
   width: 70px;
   margin: 0 auto;
-  text-align: center;
+  text-align: center;      /*规定文本的水平对齐方式*/
 }
 
 .loading > view {
   width: 24rpx;
   height: 24rpx;
-  background-color: rgba(21, 101, 192, 0.6);
+  background-color: rgba(21, 101, 192, 0.6);  /*背景颜色设置*/
 
-  border-radius: 100%;
-  display: inline-block;
-  animation: sk-bouncedelay 1s infinite ease-in-out both;
+  border-radius: 100%;      /*允许为元素添加圆角边框*/
+  display: inline-block;      /*后级块元素能在同一行显示*/
+  animation: sk-bouncedelay 1s infinite ease-in-out both;  /*页面滚动至底部自动加载数据完成*/
 }
 
-.loading .bounce1 {
+.loading .bounce1 {    /*动画延迟*/
   animation-delay: -0.32s;
 }
 
@@ -22,7 +23,7 @@
   animation-delay: -0.16s;
 }
 
-@keyframes sk-bouncedelay {
+@keyframes sk-bouncedelay {    /*使用@keyframes规则创建动画*/
   0%, 80%, 100% { 
     transform: scale(0);
   } 40% { 

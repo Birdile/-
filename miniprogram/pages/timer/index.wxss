@@ -1,3 +1,5 @@
+/*计时页面*/
+/*目标名称显示*/
 .header > .title {
   margin: 0 40rpx;
   margin-top: 40rpx;
@@ -5,26 +7,26 @@
   font-weight: bold;
   font-size: 48rpx;
 }
-
+/*‘进行中’或‘暂停中’字样显示*/
 .header > .state {
   margin: 16rpx 40rpx;
   margin-top: 24rpx;
-  color: #1976D2;
+  color: rgb(25, 37, 210);
   font-weight: bold;
   font-size: 32rpx;
 }
-
+/*计时时长显示*/
 .timer {
   margin: 0 auto;
   margin-top: 64rpx;
-  color: #1976D2;
+  color: rgb(25, 210, 210);
   text-align: center;
   text-shadow: 0 8rpx 12rpx rgba(0, 0, 0, 0.1);
   letter-spacing: 4rpx;
   font-weight: bold;
   font-size: 72rpx;
 }
-
+/*计时图标显示*/
 .circle {
   position: relative;
   margin: 0 auto;
@@ -76,7 +78,7 @@
 }
 
 .circle > .pause-resume.resume {
-  background-color: #FFA726;
+  background-color: rgb(38, 168, 255);
 }
 
 @keyframes pulse-ring {
@@ -89,7 +91,7 @@
     opacity: 0;
   }
 }
-
+/*提示栏颜色渐变显示*/
 @keyframes pulse-dot {
   0% {
     transform: scale(0.96);
@@ -101,7 +103,7 @@
     transform: scale(0.96);
   }
 }
-
+/*‘结束并保存’和‘取消’按钮显示*/
 .button-group {
   display: flex;
   align-items: center;
@@ -127,13 +129,13 @@
 .button.finish {
   display: flex;
   align-items: center;
-  background-color: #1976D2;
-  color: #EEE;
+  background-color: rgb(25, 105, 210);
+  color: rgb(238, 238, 238);
   font-size: 32rpx;
 }
 
 .button.abort {
   margin-top: 24rpx;
-  color: #999;
+  color:darkolivegreen;
   font-size: 30rpx;
 }

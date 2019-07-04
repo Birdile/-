@@ -42,7 +42,7 @@
   box-sizing: border-box;
   padding: 12rpx 48rpx;
   border-radius: 36rpx;
-  background-color: #ffee58;
+  background-color: #58bcff;
   color: black;
   text-align: center;
   font-weight: bold;
@@ -82,7 +82,7 @@ ec-canvas {
 }
 
 .project-container > .count {
-  color: #555;
+  color: #000;
   font-weight: bold;
   font-size: 28rpx;
 }
@@ -96,11 +96,12 @@ ec-canvas {
 }
 
 .project {
+  width: 90%;
   margin: 24rpx 0;
   padding: 24rpx;
   border-radius: 18rpx;
-  background-color: #fff;
-  box-shadow: 0 6rpx 24rpx rgba(25, 118, 210, 0.08);
+  background-color:lightgray;
+  box-shadow: 0 6rpx 24rpx rgba(210, 25, 155, 0.788);
 }
 
 .project > .title {
@@ -111,10 +112,11 @@ ec-canvas {
 .project > .tags {
   display: flex;
   margin-top: 6rpx;
+  margin-left: 10rpx;
 }
 
 .project > .tags > m-tag {
-  margin-left: 16rpx;
+  margin-left: 20rpx;
 }
 
 .project > .tags > m-tag:first-child {
@@ -124,11 +126,11 @@ ec-canvas {
 /* 当前记录提示 */
 .timer-tips{
   margin: 0 40rpx;
-  background-color: #fdd835;
+  background-color: #1976d2;
   font-size: 28rpx;
   border-radius: 18rpx;
   padding: 20rpx 24rpx;
-  color: #555;
+  color:blue;
   animation: tip-ani 2s infinite ease-in-out;
   box-shadow: 0 6rpx 24rpx rgba(25, 118, 210, 0.08);
 }
@@ -163,16 +165,16 @@ ec-canvas {
   font-size: 24rpx;
   flex-shrink: 0;
 }
-
+/*颜色渐变显示*/
 @keyframes tip-ani {
   0% {
-    background-color: #fdd835;
+    background-color: #35c4fd;
   }
   70% {
-    background-color: #fbc02d;
+    background-color: #2dd2fb;
   }
   100% {
-    background-color: #fdd835;
+    background-color: #35d5fd;
   }
 }
 
@@ -188,7 +190,7 @@ ec-canvas {
   height: 54px;
   border-radius: 50%;
   background-color: #1565c0;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 3rpx 20rpx;
+  box-shadow: rgb(0, 0, 0) 0 3rpx 20rpx;
 }
 
 .mask {
@@ -209,7 +211,7 @@ ec-canvas {
   padding: 48rpx 48rpx;
   width: 80%;
   border-radius: 20rpx;
-  background-color: #fff;
+  background-color:hotpink;
   transform: translateY(-60%) translateX(-50%);
   box-shadow: 0 8rpx 80rpx rgba(0, 0, 0, 0.3);
   animation: show-modal 150ms ease-out;
@@ -265,13 +267,37 @@ ec-canvas {
   margin-top: 100rpx;
 }
 
-.section{
+.remove-goal{
+  margin-top: 78rpx;
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.remove-goal-mult{
+  position: absolute;
+  right: 90rpx;
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: -10rpx;
+}
+
+.project-row{
   display: flex;
   flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-between;
-  font-weight: bold;
-  font-size: 32rpx;
-  padding-left: 15rpx;
-  padding-right: 30rpx;
+}
+
+.clear-remove-mult{
+  position: absolute;
+  right: 90rpx;
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: -3rpx;
+}
+/*删除所有目标按钮显示*/
+.remove-goal-all{
+  position: absolute;
+  right: 155rpx;
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: -10rpx;
 }
